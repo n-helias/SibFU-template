@@ -130,7 +130,7 @@ set list(
   approve-year: "2026",
   work-type: "БАКАЛАВРСКАЯ РАБОТА",
   work-topic: "",
-  practice-place: "",
+  practice-place: "Операционные системы",
   direction-code: "",
   direction-name: "",
   program-code: "",
@@ -138,6 +138,8 @@ set list(
   supervisor-role: "",
   supervisor-name: "",
   graduate-name: "",
+  student-group: "ГФ",
+  student-record-book: "",
   consultant-role: "",
   consultant-name: "",
   normcontrol-name: "",
@@ -172,19 +174,7 @@ set list(
 
      // ── 2. ГРИФ УТВЕРЖДЕНИЯ ────────────────────────────────────
   // Левая пустая колонка растягивается, правая — фиксирована
-  grid(
-    columns: (1fr, 180pt),
-    [],
-    [
-      *#approve-title* \
-      #approve-role \
-      #v(4pt)
-      #box(width: 55pt, line(length: 55pt, stroke: 0.5pt)) #approve-name \
-      #v(4pt)
-      «\_\_\_\_» \_\_\_\_\_\_\_\_\_ #approve-year г.
-    ],
-  )
-  
+  v(38mm)
   v(2em)
 
   // ── 3. ЦЕНТРАЛЬНЫЙ БЛОК ────────────────────────────────────
@@ -214,15 +204,19 @@ set list(
   }
 
    // ── 5. БЛОК ПОДПИСЕЙ ──────────────────────────────────────
-  place(bottom,
+  place(bottom, dy: -30mm,
     block(
       width: 100%,
       inset: (bottom: 24pt),
       {
         // Собираем строки вручную только для заполненных полей
         let rows = ()
-        rows.push(([Руководитель], [#supervisor-role], [#h(8pt)#supervisor-name]))
-        rows.push(([Выпускник], [], [#h(8pt)#graduate-name]))
+        rows.push(([Преподаватель], [#supervisor-role], [#h(8pt)#supervisor-name]))
+        rows.push((
+          [Студент #student-group],
+          [],
+          [#h(8pt)#graduate-name],
+        ))
         if consultant-name != "" {
           rows.push(([Консультанты], [#consultant-role], [#h(8pt)#consultant-name]))
         }
@@ -233,13 +227,15 @@ set list(
           rows.push(([Рецензент], [], [#h(8pt)#reviewer-name]))
         }
 
+        
         table(
-          columns: (1fr, 1fr, 1fr),
+          columns: (auto, 1fr, 1fr),
           stroke: none,
           align: (left, right, left),
           inset: (x: 0pt, y: 8pt),
           ..rows.flatten(),
         )
+
       }
     )
   )
@@ -276,3 +272,28 @@ set list(
 
   pagebreak()
 }
+
+
+
+#let sfu-bibliography(sources) = {
+  set par(
+    first-line-indent: 0mm,
+    leading: 1em,
+    justify: false,
+  )
+
+  for (i, source) in sources.enumerate() {
+    grid(
+      columns: (20pt, 1fr),
+      column-gutter: 5pt,
+      align: (right, left),
+      [#(i + 1).],
+      source,
+    )
+    v(6pt)
+  }
+}
+
+
+#let source(n) = link(label("source-" + str(n)))[#str("[" + str(n) + "]")]
+
