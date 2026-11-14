@@ -1,5 +1,5 @@
 
-#import "sibfu-template.typ": university-doc, title-page
+#import "sibfu-template.typ": university-doc, title-page, sfu-bibliography
 
 #title-page(
   institute: "Гуманитарный институт",
@@ -67,6 +67,8 @@
 == 7 Фоновая работа и сеансы
 
 В седьмом задании рассматриваются изучение фоновых процессов, их поведение после выхода из оболочки и способы сохранения терминального сеанса.
+
+#pagebreak()
 
 = Ход выполнения работы
 
@@ -258,30 +260,18 @@
 
 = Список используемых источников
 
-#block[
-  1. Debian Project. Debian 13 «Trixie» released [Электронный ресурс]. URL: #link("https://www.debian.org/News/2025/20250809") (дата обращения: 09.11.2026).
-] <source-1>
+#sfu-bibliography((
+  [Debian Project. Debian 13 «Trixie» released [Электронный ресурс]. URL: #link("https://www.debian.org/News/2025/20250809") (дата обращения: 09.11.2026).],
 
-#block[
-  2. Linux manual pages. ps(1): report a snapshot of the current processes [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man1/ps.1.html") (дата обращения: 09.11.2026).
-] <source-2>
+  [Linux manual pages. ps(1): report a snapshot of the current processes [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man1/ps.1.html") (дата обращения: 09.11.2026).],
 
-#block[
-  3. Linux manual pages. signal(7): overview of signals [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man7/signal.7.html") (дата обращения: 09.11.2026).
-] <source-3>
+  [Linux manual pages. signal(7): overview of signals [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man7/signal.7.html") (дата обращения: 09.11.2026).],
 
-#block[
-  4. Linux manual pages. sched(7): overview of CPU scheduling [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man7/sched.7.html") (дата обращения: 09.11.2026).
-] <source-4>
+  [Linux manual pages. sched(7): overview of CPU scheduling [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man7/sched.7.html") (дата обращения: 09.11.2026).],
 
-#block[
-  5. Linux-PAM Manual. limits.conf(5): configuration file for the pam_limits module [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man5/limits.conf.5.html") (дата обращения: 09.11.2026).
-] <source-5>
+  [Linux-PAM Manual. limits.conf(5): configuration file for the pam_limits module [Электронный ресурс]. URL: #link("https://man7.org/linux/man-pages/man5/limits.conf.5.html") (дата обращения: 09.11.2026).],
 
-#block[
-  6. systemd. systemd.service: service unit configuration [Электронный ресурс]. URL: #link("https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html") (дата обращения: 09.11.2026).
-] <source-6>
+  [systemd. systemd.service: service unit configuration [Электронный ресурс]. URL: #link("https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html") (дата обращения: 09.11.2026).],
 
-#block[
-  7. GNU Project. Bash Reference Manual. Signals [Электронный ресурс]. URL: #link("https://www.gnu.org/software/bash/manual/html_node/Signals.html") (дата обращения: 09.11.2026).
-] <source-7>
+  [GNU Project. Bash Reference Manual. Signals [Электронный ресурс]. URL: #link("https://www.gnu.org/software/bash/manual/html_node/Signals.html") (дата обращения: 09.11.2026).],
+))

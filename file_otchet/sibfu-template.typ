@@ -277,22 +277,24 @@ set list(
 
 #let sfu-bibliography(sources) = {
   set par(
-    first-line-indent: 0mm,
+    first-line-indent: 12.5mm,
     leading: 1em,
-    justify: false,
+    justify: true,
   )
 
   for (i, source) in sources.enumerate() {
-    grid(
-      columns: (20pt, 1fr),
-      column-gutter: 5pt,
-      align: (right, left),
-      [#(i + 1).],
-      source,
-    )
-    v(6pt)
+    let n = i + 1
+    let target = label("source-" + str(n))
+
+    [
+      #par[
+      #n.#h(0.5em)#source
+      ]
+      #metadata(n) #target
+    ]
   }
 }
+
 
 
 #let source(n) = link(label("source-" + str(n)))[#str("[" + str(n) + "]")]
